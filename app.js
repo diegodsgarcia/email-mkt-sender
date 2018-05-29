@@ -25,7 +25,7 @@ const questions = [
 ];
 
 program
-  .version('1.0.0')
+  .version('1.0.5')
   .description('E-mail marketing sender');
 
 program
