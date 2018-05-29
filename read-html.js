@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 module.exports = (directory) => {
-  const dir = path.resolve(`${__dirname}/${verifyIfHasADirectory(directory)}`);
+  const dir = path.resolve(`${process.cwd()}/${verifyIfHasADirectory(directory)}`);
   return readFile(dir);
 }
 

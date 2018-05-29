@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "A command that send a e-mail marketing to your e-mail",
   "main": "app.js",
-  "preferGlobal": true,
-  "bin": "./app.js",
+  "preferGlobal": "true",
+  "bin": {
+    "email-mkt": "./app.js"
+  },
   "dependencies": {
     "commander": "^2.15.1",
     "inquirer": "^5.2.0",

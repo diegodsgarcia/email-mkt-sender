@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const program    = require('commander');
 const sendEmail  = require('./send-email');
 const readHTML   = require('./read-html');
