@@ -3,6 +3,7 @@
 const program    = require('commander');
 const sendEmail  = require('./send-email');
 const readHTML   = require('./read-html');
+const colors     = require('colors');
 const { prompt } = require('inquirer');
 
 const questions = [
@@ -32,16 +33,22 @@ program
   .alias('s')
   .description('Send e-mail marketing with custom directory of html')
   .action(html => {
-    prompt(questions).then(answers =>
-      sendDatas(answers.email, answers.password, readHTML(answers.html)
-    ));
+    prompt(questions).then(answers => {
+      sendDatas(answers.email, answers.password, answers.html);
+    });
   });
 
 program.parse(process.argv);
 
 async function sendDatas(email, password, html) {
-  const datas = await html;
-  sendEmail(email, password, datas);
+  try {
+    const datas = await readHTML(html);
+    const sender = await sendEmail(email, password, datas);
+    console.log(`E-mail sent :D ' ${sender.response}`.green);
+  } catch(error) {
+    console.log('Ops! There was a problem! :('.red);
+    throw error;
+  }
 }
 
 

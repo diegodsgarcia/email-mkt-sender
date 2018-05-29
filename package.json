@@ -1,6 +1,6 @@
 {
   "name": "email-mkt-sender",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "A command that send a e-mail marketing to your e-mail",
   "main": "app.js",
   "preferGlobal": "true",
@@ -8,6 +8,7 @@
     "email-mkt": "./app.js"
   },
   "dependencies": {
+    "colors": "^1.3.0",
     "commander": "^2.15.1",
     "inquirer": "^5.2.0",
     "nodemailer": "^4.6.5",
@@ -24,7 +25,7 @@
   "keywords": [
     "email",
     "marketing",
-    "sender"
+    "send"
   ],
   "author": "diegodsgarcia",
   "license": "ISC"
