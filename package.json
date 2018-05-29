@@ -1,6 +1,6 @@
 {
   "name": "email-mkt-sender",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A command that send a e-mail marketing to your e-mail",
   "main": "app.js",
   "preferGlobal": "true",

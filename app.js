@@ -44,7 +44,7 @@ async function sendDatas(email, password, html) {
   try {
     const datas = await readHTML(html);
     const sender = await sendEmail(email, password, datas);
-    console.log(`E-mail sent :D ' ${sender.response}`.green);
+    console.log(`E-mail sent :D`.green);
   } catch(error) {
     console.log('Ops! There was a problem! :('.red);
     throw error;
