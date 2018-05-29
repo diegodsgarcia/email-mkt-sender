@@ -1,0 +1,25 @@
+{
+  "name": "email-mkt-sender",
+  "version": "1.0.0",
+  "description": "A command that send a e-mail marketing to your e-mail",
+  "main": "app.js",
+  "preferGlobal": true,
+  "bin": "./app.js",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "inquirer": "^5.2.0",
+    "nodemailer": "^4.6.5",
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "email",
+    "marketing",
+    "sender"
+  ],
+  "author": "diegodsgarcia",
+  "license": "ISC"
+}
