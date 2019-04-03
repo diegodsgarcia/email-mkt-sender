@@ -1,44 +1,29 @@
-#!/usr/bin/env node
-
-const program    = require('commander');
+const inquirer   = require('inquirer');
+const colors     = require('colors');
 const sendEmail  = require('./send-email');
 const readHTML   = require('./read-html');
-const colors     = require('colors');
-const { prompt } = require('inquirer');
 
-const questions = [
-  {
-    type: 'input',
-    name: 'email',
-    message: 'Enter e-mail ...'
-  },
-  {
-    type: 'password',
-    name: 'password',
-    message: 'Enter password ...'
-  },
-  {
-    type: 'text',
-    name: 'html',
-    message: 'Enter directory or name file of html (optional) ...'
-  }
-];
-
-program
-  .version('1.0.5')
-  .description('E-mail marketing sender');
-
-program
-  .command('send')
-  .alias('s')
-  .description('Send e-mail marketing with custom directory of html')
-  .action(html => {
-    prompt(questions).then(answers => {
-      sendDatas(answers.email, answers.password, answers.html);
-    });
+inquirer
+  .prompt([
+    {
+      type: 'input',
+      name: 'email',
+      message: 'What is your e-mail?',
+    },
+    {
+      type: 'password',
+      name: 'password',
+      message: 'What is your password?',
+    },
+    {
+      type: 'text',
+      name: 'html',
+      message: 'Enter directory or name file of html (optional):'
+    }
+  ])
+  .then(answers => {
+    sendDatas(answers.email, answers.password, answers.html);
   });
-
-program.parse(process.argv);
 
 async function sendDatas(email, password, html) {
   try {
@@ -50,38 +35,3 @@ async function sendDatas(email, password, html) {
     throw error;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
